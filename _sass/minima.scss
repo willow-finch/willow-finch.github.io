@@ -26,6 +26,15 @@ $content-width:    800px !default;
 $on-palm:          600px !default;
 $on-laptop:        800px !default;
 
+// change colorscheme
+
+$text-color: #657b83;
+$background-color: #fdf6e3;
+$brand-color: #268bd2;
+$grey-color: #93a1a1;
+$grey-color-light: #eee8d5;
+$code-background-color: #eee8d5;
+
 // Use media queries like this:
 // @include media-query($on-palm) {
 //   .wrapper {

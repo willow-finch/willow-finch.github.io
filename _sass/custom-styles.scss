@@ -1,5 +1,18 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+
+// ******************
+// Component-specific variables (using Minima's variables)
+// ******************
+$book-grid-gap: 2rem;
+$book-card-padding: 1.5rem;
+$book-border-radius: 8px;
+$transition-speed: 0.2s;
+
+// Reuse Minima's colors for shadows
+$shadow-light: 0 2px 4px rgba(7, 54, 66, 0.08);
+$shadow-hover: 0 8px 16px rgba(7, 54, 66, 0.12);
+
 // ******************
 // 站点 Utility
 // ******************
@@ -33,11 +46,11 @@ $book-card-padding: 1.5rem;
 $book-border-radius: 8px;
 $transition-speed: 0.2s;
 
-$color-primary: #3498db;
-$color-text-dark: #2c3e50;
-$color-text-light: #666;
-$shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
-$shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+// $color-primary: #3498db;
+// $color-text-dark: #2c3e50;
+// $color-text-light: #666;
+// $shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+// $shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
 
 .book-block {
   display: flex;
@@ -66,24 +79,7 @@ $shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
 .book-card {
   display: block;
   text-decoration: none;
-  background: #f5f5f5;  // Grey background
-  border-radius: $book-border-radius;
-  // padding: $book-card-padding;
-  transition: transform $transition-speed ease, 
-              box-shadow $transition-speed ease;
-  box-shadow: $shadow-light;
-  width: 100%;  // Takes full width of .book-block
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: $shadow-hover;
-  }
-}
-
-.book-card {
-  display: block;
-  text-decoration: none;
-  background: #f5f5f5;
+  background: $grey-color-light;
   border-radius: $book-border-radius;
   padding: $book-card-padding;
   transition: transform $transition-speed ease, 
@@ -95,6 +91,7 @@ $shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
   &:hover {
     transform: translateY(-4px);
     box-shadow: $shadow-hover;
+    text-decoration: none;  // ← Add this line
   }
 }
 
@@ -102,18 +99,18 @@ $shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0 0 0.5rem 0;
-  color: $color-text-dark;
+  color: $text-color;
   transition: color $transition-speed ease;
 
   .book-card:hover & {
-    color: $color-primary;
+    color: $brand-color;
   }
 }
 
 .book-description {
   font-size: 0.95rem;
   line-height: 1.5;
-  color: $color-text-light;
+  color: $text-color;
   margin: 0.75rem 0 0 0;
   padding-left: 1.5rem;
 }
@@ -121,11 +118,11 @@ $shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
 .latest-update{
   margin-top: 1rem;
   padding-top: 0.75rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba($text-color, 0.15);  // Using $text-color for border
   font-size: 0.9rem;
   
   a {
-    color: $color-primary;
+    color: $brand-color;
     text-decoration: none;
     
     &:hover {
@@ -135,47 +132,28 @@ $shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .latest-updates-block {
-  background: #f9f9f9;
+  background: $grey-color-light;
   border-radius: $book-border-radius;
   padding: $book-card-padding;
   margin-bottom: $book-grid-gap;
   box-shadow: $shadow-light;
+  // Add this hover transition:
+  transition: transform $transition-speed ease, 
+              box-shadow $transition-speed ease;
   
   h3 {
     margin: 0 0 1rem 0;
     font-size: 1.25rem;
     font-weight: 600;
-    color: $color-text-dark;
-    border-bottom: 2px solid $color-primary;
+    color: $text-color;
+    border-bottom: 2px solid $brand-color;
     padding-bottom: 0.5rem;
   }
 }
 
 .latest-update-item {
   padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  
-  &:last-child {
-    border-bottom: none;
-  }
-  
-  a {
-    display: block;
-    color: $color-text-dark;
-    text-decoration: none;
-    transition: color $transition-speed ease;
-    
-    &:hover {
-      color: $color-primary;
-      transform: translateX(4px);
-      transition: transform $transition-speed ease;
-    }
-  }
-}
-
-.latest-update-item {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba($text-color, 0.1);  // Using $text-color for border
   
   // Two-column grid layout
   display: grid;
@@ -191,19 +169,19 @@ $shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
     white-space: nowrap;
     font-family: monospace;
     font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: $grey-color;
   }
   
   a {
     display: block;
-    color: $color-text-dark;
+    color: $text-color;
     text-decoration: none;
     transition: color $transition-speed ease;
     word-break: break-word;
     overflow-wrap: break-word;
     
     &:hover {
-      color: $color-primary;
+      color: $brand-color;
       transform: translateX(4px);
       transition: transform $transition-speed ease;
     }
@@ -213,4 +191,9 @@ $shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
   @media (max-width: 480px) {
     gap: 0.5rem;
   }
+}
+
+// navigation item style
+.current-nav-item {
+    font-weight: bold;
 }
