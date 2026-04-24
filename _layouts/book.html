@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<!-- if need extra text specified in book*.md -->
+<!-- {{ content }} -->
+
+{% assign book = site.data.books_info[page.book] %}
+<h1>{{ book.title }}</h1>
+
+<p>
+    {{ book.description }}
+</p>
+
+<hr class="divider">
+<p></p>
+
+<div>
+    {% assign chapters = site.books | where: "book", page.book | sort: "order" %}
+
+    {% for ch in chapters %}
+    {% if ch.order %}
+    <p>
+        <a href="{{ ch.url }}">
+            <span>{{ ch.order }}.</span>
+            <span>{{ ch.title }}</span>
+        </a>
+    </p>
+    {% endif %}
+    {% endfor %}
+</div>
+<a href="/" class="home-button">
+    ← 回到主页
+</a>

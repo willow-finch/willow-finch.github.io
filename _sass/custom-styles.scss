@@ -1,0 +1,174 @@
+// Placeholder to allow defining custom styles that override everything else.
+// (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+// ******************
+// 站点 Utility
+// ******************
+.tab-space {
+  display: inline-block;
+  width: 2rem;  // Creates a tab-like space
+}
+
+// ******************
+// 站点 Logo 样式
+// ******************
+.site-logo {
+  max-height: 30px;
+  width: auto;
+  vertical-align: middle;
+}
+
+// Optional: Use theme variables for responsive design
+@media (max-width: 600px) {
+  .site-logo {
+    max-height: 40px;  // Smaller on mobile
+  }
+}
+
+// ******************
+// 书籍/章节展示区块
+// ******************
+// Variables
+$book-grid-gap: 2rem;
+$book-card-padding: 1.5rem;
+$book-border-radius: 8px;
+$transition-speed: 0.2s;
+
+$color-primary: #3498db;
+$color-text-dark: #2c3e50;
+$color-text-light: #666;
+$shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+.book-block {
+  display: flex;
+  flex-direction: column;
+  gap: $book-grid-gap;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.book-block {
+  display: flex;
+  flex-direction: column;
+  gap: $book-grid-gap;
+  padding: 0;  // No padding needed
+  width: 100%;  // Take full width of wrapper
+  
+  // // Remove these since wrapper handles them:
+  // max-width: 1200px;
+  // margin: 0 auto;
+}
+
+
+.book-card {
+  display: block;
+  text-decoration: none;
+  background: #f5f5f5;  // Grey background
+  border-radius: $book-border-radius;
+  // padding: $book-card-padding;
+  transition: transform $transition-speed ease, 
+              box-shadow $transition-speed ease;
+  box-shadow: $shadow-light;
+  width: 100%;  // Takes full width of .book-block
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-hover;
+  }
+}
+
+.book-card {
+  display: block;
+  text-decoration: none;
+  background: #f5f5f5;
+  border-radius: $book-border-radius;
+  padding: $book-card-padding;
+  transition: transform $transition-speed ease, 
+              box-shadow $transition-speed ease;
+  box-shadow: $shadow-light;
+  width: 100%;
+  box-sizing: border-box;  // ← Add this line
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-hover;
+  }
+}
+
+.book-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: $color-text-dark;
+  transition: color $transition-speed ease;
+
+  .book-card:hover & {
+    color: $color-primary;
+  }
+}
+
+.book-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: $color-text-light;
+  margin: 0.75rem 0 0 0;
+  padding-left: 1.5rem;
+}
+
+.latest-update{
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  
+  a {
+    color: $color-primary;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.latest-updates-block {
+  background: #f9f9f9;
+  border-radius: $book-border-radius;
+  padding: $book-card-padding;
+  margin-bottom: $book-grid-gap;
+  box-shadow: $shadow-light;
+  
+  h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $color-text-dark;
+    border-bottom: 2px solid $color-primary;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.latest-update-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  a {
+    display: block;
+    color: $color-text-dark;
+    text-decoration: none;
+    transition: color $transition-speed ease;
+    
+    &:hover {
+      color: $color-primary;
+      transform: translateX(4px);
+      transition: transform $transition-speed ease;
+    }
+  }
+}

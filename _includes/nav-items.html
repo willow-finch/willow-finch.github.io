@@ -1,0 +1,16 @@
+{%- if include.paths -%}
+<div class="nav-items">
+    {%- for item in include.paths -%}
+    {%- if item.url and item.title -%}
+    <!-- Custom nav item from config.yml -->
+    <a class="nav-item page-link" href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>
+    {%- elsif site.pages -%}
+    <!-- Traditional page path (e.g., "about.md") -->
+    {%- assign my_page = site.pages | where: "path", item | first -%}
+    {%- if my_page.title -%}
+    <a class="nav-item page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+    {%- endif -%}
+    {%- endif -%}
+    {%- endfor -%}
+</div>
+{%- endif -%}

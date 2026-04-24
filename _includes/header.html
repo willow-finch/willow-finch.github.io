@@ -1,0 +1,26 @@
+<header class="site-header">
+  {%- assign default_paths = site.pages | map: "path" -%}
+  {%- assign page_paths = site.nav_pages | default: default_paths -%}
+  {%- assign page_titles = site.pages | map: 'title' | compact -%}
+  {%- assign nav_pages = "" | split: "" -%}
+
+
+  <a class="site-title" href="{{ '/' | relative_url }}">
+    {%- if site.logo -%}
+    <span class="site-title">
+      <img src="{{ site.logo | relative_url }}" alt="Logo" class="site-logo">
+    </span>
+    <!-- <img src="{{ site.logo | relative_url }}" alt="Logo" class="site-logo"> -->
+    <span class="site-title">{{ site.title | escape }}</span>
+    {%- endif -%}
+  </a>
+
+  {%- unless page_titles == empty %}
+  <nav class="site-nav">
+    <label for="nav-trigger">
+      <span class="menu-icon"></span>
+    </label>
+    {% include nav-items.html paths = page_paths %}
+  </nav>
+  {%- endunless %}
+</header>

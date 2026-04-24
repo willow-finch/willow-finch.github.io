@@ -1,0 +1,12 @@
+_books
+├── book1
+│   ├── 01_chapter1.md
+│   ├── 02_chapter2.md
+│   └── 03_chapter3.md
+├── book1.md
+├── book2
+│   ├── 01_meaningless_conversation copy.md
+│   └── 02_the_last_gathering.md
+└── book2.md
+
+3 directories, 7 files
