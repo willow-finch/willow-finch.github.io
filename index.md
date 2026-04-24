@@ -43,11 +43,9 @@ Filtered Books ({{ filtered_books | size }} items):
 <div class="latest-updates-block">
   {% for post in latest_posts limit:5 %}
     {% assign book_info = site.data.books_info[post.book] %}
-    <div class="update-item">
+    <div class="latest-update-item">
       <span class="update-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-      <span class="tab-space"></span>
       <a href="{{ post.url }}">
-        <!-- &lt;&lt;{{ book_info.title }}&gt;&gt; - {{ post.title }} -->
         &lt;&lt;{{ book_info.title }}&gt;&gt; - 第{{ post.order }}章: {{ post.title }}
       </a>
     </div>

@@ -172,3 +172,45 @@ $shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
     }
   }
 }
+
+.latest-update-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  
+  // Two-column grid layout
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: baseline;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  .update-date {
+    white-space: nowrap;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  a {
+    display: block;
+    color: $color-text-dark;
+    text-decoration: none;
+    transition: color $transition-speed ease;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    
+    &:hover {
+      color: $color-primary;
+      transform: translateX(4px);
+      transition: transform $transition-speed ease;
+    }
+  }
+  
+  // Responsive adjustment for very small screens
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+  }
+}
