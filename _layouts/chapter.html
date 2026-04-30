@@ -15,8 +15,37 @@ layout: default
     {% if page.subtitle %}
     <p class="chapter-subtitle">{{ page.subtitle }}</p>
     {% endif %}
+
+    <!-- {% assign words = content | strip_html | number_of_words %} -->
+
+
+    <!-- <p class="chapter-subtitle">字数: {{ content | strip_html | size }}</p> -->
+    <!-- <p class="chapter-subtitle">字数: {{ content | strip_html | replace: " ", "" | size }}</p> -->
+    <p class="chapter-subtitle">
+
+      字数：
+      {{ content
+      | strip_html
+      | replace: " ", ""
+      | replace: "。", ""
+      | replace: "，", ""
+      | replace: "！", ""
+      | replace: "？", ""
+      | replace: "：", ""
+      | replace: "；", ""
+      | replace: "、", ""
+      | replace: "（", ""
+      | replace: "）", ""
+      | replace: "“", ""
+      | replace: "”", ""
+      | replace: "《", ""
+      | replace: "》", ""
+      | size
+      }}
+    </p>
   </header>
 
+  ---
 
   <div class="chapter-content">
     {{ content }}

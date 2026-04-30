@@ -1,9 +1,8 @@
 ---
 layout: chapter
-title: "陌生人"
+title: "木头盒子"
 book: "book1"
 order: 2
-license: "CC BY-SA"
+license: ""
 ---
 
-Your chapter content here...~
